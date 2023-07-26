@@ -64,7 +64,7 @@ void  I2C2_EV_IRQHandler           (void)  __attribute__((alias("default_handler
 void  I2C2_ER_IRQHandler           (void)  __attribute__((alias("default_handler"))); /* I2C2 error interrupt                                                            */
 void  SPI1_IRQHandler              (void)  __attribute__((alias("default_handler"))); /* SPI1 global interrupt                                                           */
 void  SPI2_IRQHandler              (void)  __attribute__((alias("default_handler"))); /* SPI2 global interrupt                                                           */
-void  USART1_IRQHandler            (void)  __attribute__((alias("default_handler"))); /* USART1 global interrupt                                                         */
+void  USART1_IRQHandler            (void)  /*__attribute__((alias("default_handler")))*/; /* USART1 global interrupt                                                         */
 void  USART2_IRQHandler            (void)  __attribute__((alias("default_handler"))); /* USART2 global interrupt                                                         */
 void  EXTI15_10_IRQHandler         (void)  __attribute__((alias("default_handler"))); /* EXTI Line[15:10] interrupts                                                     */
 void  EXTI17_RTC_Alarm_IRQHandler  (void)  __attribute__((alias("default_handler"))); /* EXTI Line 17 interrupt / RTC Alarms (A and B) through EXTI line interrupt       */
@@ -81,7 +81,6 @@ void  SPI4_IRQHandler              (void)  __attribute__((alias("default_handler
 
 uint32_t  * Int_VectorTable[] __attribute__((section("isr_vector"))) =
  { 
-        (uint32_t *)  MSP_ADD,
         (uint32_t *) &_estack,
         (uint32_t *) &Reset_Handler,
         (uint32_t *) &NMI_Handler,
