@@ -81,7 +81,7 @@ void  SPI4_IRQHandler              (void)  __attribute__((alias("default_handler
 
 uint32_t  * Int_VectorTable[] __attribute__((section("isr_vector"))) =
  { 
-        (uint32_t *) &_estack,
+        (uint32_t *) &MSP_ADD,
         (uint32_t *) &Reset_Handler,
         (uint32_t *) &NMI_Handler,
         (uint32_t *) &HardFault_Handler,
