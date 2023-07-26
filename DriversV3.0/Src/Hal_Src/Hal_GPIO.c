@@ -60,30 +60,36 @@ static ERR Hal_Gpio_Pin_Config(GPIO_Typedef * GPIO_PORT, GPIO_InitStruct * GPIO_
 	switch(GPIO_S->mode)
 	{
 		case GPIO_MODE_INPUT:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MInput<<Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			break;
 		case GPIO_MODE_OUTPUT_PP:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MGPOUT<<Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			HAL_Speed_SET(GPIO_PORT,GPIO_S->Speed,Shift);
 			break;
 		case GPIO_MODE_OUTPUT_OD:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MGPOUT << Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			HAL_Speed_SET(GPIO_PORT,GPIO_S->Speed,Shift);
 			break;
 		case GPIO_MODE_AF_PP:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MALT<<Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			HAL_Speed_SET(GPIO_PORT,GPIO_S->Speed,Shift);
 			break;
 		case GPIO_MODE_AF_OD:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MALT<<Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			HAL_Speed_SET(GPIO_PORT,GPIO_S->Speed,Shift);
 			break;
 		case GPIO_MODE_AF_INPUT:
+			GPIO_PORT->MODER &= ~(PUPDR_CLEAR<<Shift);
 			GPIO_PORT->MODER |= (MODERX_MInput<<Shift);
 			HAL_PULL_SET(GPIO_PORT,GPIO_S->pull,Shift);
 			break;
@@ -140,8 +146,6 @@ ERR  HAL_GPIO_Init(GPIO_Typedef * GPIO_PORT, GPIO_InitStruct * GPIO_S)
 			HAL_RCC_GPIOH_EN();
 		}
 		/*Configure GPIO*/
-		/*Reset MODER register*/
-		GPIO_PORT->MODER = 0x00000000U;
 		/*Since Function inits multiple pins a check must be done to configure a ceratin pin*/
 		if (GPIO_S->Pin & GPIO_PIN_0) {
 			/*Init PIN0*/
