@@ -189,7 +189,7 @@ static void System_Initiliazation(void){
     /*Clock Init*/
 }
 
-void  Reset_Handleroid()
+void  Reset_Handler()
 {
     /* Variables Initilization */
     uint32_t MemSize = &_edata - &_sdata;
