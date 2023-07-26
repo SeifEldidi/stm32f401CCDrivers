@@ -8,6 +8,9 @@
 *  7] Jump to main function
 */
 
+/*Typedef Sect*/
+typedef unsigned int uint32_t;
+
 /* Main Funciton to be called by startup Code */
 extern void main();
 
@@ -27,53 +30,53 @@ uint32_t * const MSP_ADD =(uint32_t * const) &_estack;
 
 /* IVT vector Table Implementation */
 void  Reset_Handler                 void()  
-void  NMI_Handler                   void()  __attribute((allias("default_handler")));
-void  HardFault_Handler             void()  __attribute((allias("default_handler")));
-void  MemManage_Handler             void()  __attribute((allias("default_handler")));
-void  BusFault_Handler              void()  __attribute((allias("default_handler")));
-void  UsageFault_Handler            void()  __attribute((allias("default_handler")));
-void  SVC_Handler                   void()  __attribute((allias("default_handler")));
-void  DebugMon_Handler              void()  __attribute((allias("default_handler")));
-void  PendSV_Handler                void()  __attribute((allias("default_handler")));
-void  SysTick_Handler               void()  __attribute((allias("default_handler")));                                                            */
-void  EXTI16_PVD_IRQHandler         void()  __attribute((allias("default_handler")));       /* EXTI Line 16 interrupt /PVD through EXTI line detection interrupt               */
-void  TAMP_STAMP_IRQHandler         void()  __attribute((allias("default_handler")));      /* Tamper and TimeStamp interrupts through the EXTI line                           */
-void  EXTI22_RTC_WKUP_IRQHandler    void()  __attribute((allias("default_handler"))); /* EXTI Line 22 interrupt /RTC Wakeup interrupt through the EXTI line              */
-void  FLASH_IRQHandler              void()  __attribute((allias("default_handler")));             /* FLASH global interrupt                                                          */
-void  RCC_IRQHandler                void()  __attribute((allias("default_handler")));               /* RCC global interrupt                                                            */
-void  EXTI0_IRQHandler              void()  __attribute((allias("default_handler")));              /* EXTI Line0 interrupt                                                            */
-void  EXTI1_IRQHandler              void()  __attribute((allias("default_handler")));             /* EXTI Line1 interrupt                                                            */
-void  EXTI2_IRQHandler              void()  __attribute((allias("default_handler")));             /* EXTI Line2 interrupt                                                            */
-void  EXTI3_IRQHandler              void()  __attribute((allias("default_handler")));             /* EXTI Line3 interrupt                                                            */
-void  EXTI4_IRQHandler              void()  __attribute((allias("default_handler")));             /* EXTI Line4 interrupt                                                            */
-void  EXTI9_5_IRQHandler            void()  __attribute((allias("default_handler")));        /* EXTI Line[9:5] interrupts                                                       */
-void  TIM1_BRK_TIM9_IRQHandler      void()  __attribute((allias("default_handler")));     /* TIM1 Break interrupt and TIM9 global interrupt                                  */
-void  TIM1_UP_TIM10_IRQHandler      void()  __attribute((allias("default_handler")));    /* TIM1 Update interrupt and TIM10 global interrupt                                */
-void  TIM1_TRG_COM_TIM11_IRQHandler void()  __attribute((allias("default_handler"))); /* TIM1 Trigger and Commutation interrupts and TIM11 global interrupt              */
-void  TIM1_CC_IRQHandler            void()  __attribute((allias("default_handler"))); /* TIM1 Capture Compare interrupt                                                  */
-void  TIM2_IRQHandler               void()  __attribute((allias("default_handler"))); /* TIM2 global interrupt                                                           */
-void  TIM3_IRQHandler               void()  __attribute((allias("default_handler"))); /* TIM3 global interrupt                                                           */
-void  TIM4_IRQHandler               void()  __attribute((allias("default_handler"))); /* TIM4 global interrupt                                                           */
-void  I2C1_EV_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C1 event interrupt                                                            */
-void  I2C1_ER_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C1 error interrupt                                                            */
-void  I2C2_EV_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C2 event interrupt                                                            */
-void  I2C2_ER_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C2 error interrupt                                                            */
-void  SPI1_IRQHandler               void()  __attribute((allias("default_handler"))); /* SPI1 global interrupt                                                           */
-void  SPI2_IRQHandler               void()  __attribute((allias("default_handler"))); /* SPI2 global interrupt                                                           */
-void  USART1_IRQHandler             void()  __attribute((allias("default_handler"))); /* USART1 global interrupt                                                         */
-void  USART2_IRQHandler             void()  __attribute((allias("default_handler"))); /* USART2 global interrupt                                                         */
-void  EXTI15_10_IRQHandler          void()  __attribute((allias("default_handler"))); /* EXTI Line[15:10] interrupts                                                     */
-void  EXTI17_RTC_Alarm_IRQHandler   void()  __attribute((allias("default_handler"))); /* EXTI Line 17 interrupt / RTC Alarms (A and B) through EXTI line interrupt       */
-void  EXTI18_OTG_FS_WKUP_IRQHandler void()  __attribute((allias("default_handler"))); /* EXTI Line 18 interrupt / USBUSB On-The-Go FS Wakeup through EXTI line interrupt */
-void  SDIO_IRQHandler               void()  __attribute((allias("default_handler"))); /* SDIO global interrupt                                                           */
-void  TIM5_IRQHandler               void()  __attribute((allias("default_handler"))); /* TIM5 global interrupt                                                           */
-void  SPI3_IRQHandler               void()  __attribute((allias("default_handler"))); /* SPI3 global interrupt                                                           */
-void  OTG_FS_IRQHandler             void()  __attribute((allias("default_handler"))); /* USB On The Go FS global interrupt                                               */
-void  USART6_IRQHandler             void()  __attribute((allias("default_handler"))); /* USART6 global interrupt                                                         */
-void  I2C3_EV_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C3 event interrupt                                                            */
-void  I2C3_ER_IRQHandler            void()  __attribute((allias("default_handler"))); /* I2C3 error interrupt                                                            */
-void  FPU_IRQHandler                void()  __attribute((allias("default_handler"))); /* Floating point interrupt                                                        */
-void  SPI4_IRQHandler               void()  __attribute((allias("default_handler"))); /* SPI4 global interrupt  */
+void  NMI_Handler                   void()  __attribute((alias("default_handler")));
+void  HardFault_Handler             void()  __attribute((alias("default_handler")));
+void  MemManage_Handler             void()  __attribute((alias("default_handler")));
+void  BusFault_Handler              void()  __attribute((alias("default_handler")));
+void  UsageFault_Handler            void()  __attribute((alias("default_handler")));
+void  SVC_Handler                   void()  __attribute((alias("default_handler")));
+void  DebugMon_Handler              void()  __attribute((alias("default_handler")));
+void  PendSV_Handler                void()  __attribute((alias("default_handler")));
+void  SysTick_Handler               void()  __attribute((alias("default_handler")));                                                            */
+void  EXTI16_PVD_IRQHandler         void()  __attribute((alias("default_handler")));       /* EXTI Line 16 interrupt /PVD through EXTI line detection interrupt               */
+void  TAMP_STAMP_IRQHandler         void()  __attribute((alias("default_handler")));      /* Tamper and TimeStamp interrupts through the EXTI line                           */
+void  EXTI22_RTC_WKUP_IRQHandler    void()  __attribute((alias("default_handler"))); /* EXTI Line 22 interrupt /RTC Wakeup interrupt through the EXTI line              */
+void  FLASH_IRQHandler              void()  __attribute((alias("default_handler")));             /* FLASH global interrupt                                                          */
+void  RCC_IRQHandler                void()  __attribute((alias("default_handler")));               /* RCC global interrupt                                                            */
+void  EXTI0_IRQHandler              void()  __attribute((alias("default_handler")));              /* EXTI Line0 interrupt                                                            */
+void  EXTI1_IRQHandler              void()  __attribute((alias("default_handler")));             /* EXTI Line1 interrupt                                                            */
+void  EXTI2_IRQHandler              void()  __attribute((alias("default_handler")));             /* EXTI Line2 interrupt                                                            */
+void  EXTI3_IRQHandler              void()  __attribute((alias("default_handler")));             /* EXTI Line3 interrupt                                                            */
+void  EXTI4_IRQHandler              void()  __attribute((alias("default_handler")));             /* EXTI Line4 interrupt                                                            */
+void  EXTI9_5_IRQHandler            void()  __attribute((alias("default_handler")));        /* EXTI Line[9:5] interrupts                                                       */
+void  TIM1_BRK_TIM9_IRQHandler      void()  __attribute((alias("default_handler")));     /* TIM1 Break interrupt and TIM9 global interrupt                                  */
+void  TIM1_UP_TIM10_IRQHandler      void()  __attribute((alias("default_handler")));    /* TIM1 Update interrupt and TIM10 global interrupt                                */
+void  TIM1_TRG_COM_TIM11_IRQHandler void()  __attribute((alias("default_handler"))); /* TIM1 Trigger and Commutation interrupts and TIM11 global interrupt              */
+void  TIM1_CC_IRQHandler            void()  __attribute((alias("default_handler"))); /* TIM1 Capture Compare interrupt                                                  */
+void  TIM2_IRQHandler               void()  __attribute((alias("default_handler"))); /* TIM2 global interrupt                                                           */
+void  TIM3_IRQHandler               void()  __attribute((alias("default_handler"))); /* TIM3 global interrupt                                                           */
+void  TIM4_IRQHandler               void()  __attribute((alias("default_handler"))); /* TIM4 global interrupt                                                           */
+void  I2C1_EV_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C1 event interrupt                                                            */
+void  I2C1_ER_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C1 error interrupt                                                            */
+void  I2C2_EV_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C2 event interrupt                                                            */
+void  I2C2_ER_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C2 error interrupt                                                            */
+void  SPI1_IRQHandler               void()  __attribute((alias("default_handler"))); /* SPI1 global interrupt                                                           */
+void  SPI2_IRQHandler               void()  __attribute((alias("default_handler"))); /* SPI2 global interrupt                                                           */
+void  USART1_IRQHandler             void()  __attribute((alias("default_handler"))); /* USART1 global interrupt                                                         */
+void  USART2_IRQHandler             void()  __attribute((alias("default_handler"))); /* USART2 global interrupt                                                         */
+void  EXTI15_10_IRQHandler          void()  __attribute((alias("default_handler"))); /* EXTI Line[15:10] interrupts                                                     */
+void  EXTI17_RTC_Alarm_IRQHandler   void()  __attribute((alias("default_handler"))); /* EXTI Line 17 interrupt / RTC Alarms (A and B) through EXTI line interrupt       */
+void  EXTI18_OTG_FS_WKUP_IRQHandler void()  __attribute((alias("default_handler"))); /* EXTI Line 18 interrupt / USBUSB On-The-Go FS Wakeup through EXTI line interrupt */
+void  SDIO_IRQHandler               void()  __attribute((alias("default_handler"))); /* SDIO global interrupt                                                           */
+void  TIM5_IRQHandler               void()  __attribute((alias("default_handler"))); /* TIM5 global interrupt                                                           */
+void  SPI3_IRQHandler               void()  __attribute((alias("default_handler"))); /* SPI3 global interrupt                                                           */
+void  OTG_FS_IRQHandler             void()  __attribute((alias("default_handler"))); /* USB On The Go FS global interrupt                                               */
+void  USART6_IRQHandler             void()  __attribute((alias("default_handler"))); /* USART6 global interrupt                                                         */
+void  I2C3_EV_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C3 event interrupt                                                            */
+void  I2C3_ER_IRQHandler            void()  __attribute((alias("default_handler"))); /* I2C3 error interrupt                                                            */
+void  FPU_IRQHandler                void()  __attribute((alias("default_handler"))); /* Floating point interrupt                                                        */
+void  SPI4_IRQHandler               void()  __attribute((alias("default_handler"))); /* SPI4 global interrupt  */
 
 uint32_t  * Int_VectorTable[] __attribute__((section("isr_vector"))) ={
         (uint32_t *)  MSP_ADD,
