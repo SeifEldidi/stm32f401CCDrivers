@@ -26,7 +26,7 @@ extern uint32_t _ebss;
 extern uint32_t _estack;
 
 /*Set stack Pointer */
-uint32_t * const MSP_ADD =(uint32_t * const) &_estack;
+uint32_t * const MSP_ADD =(uint32_t *) &_estack;
 
 /* IVT vector Table Implementation */
 void  Reset_Handler                (void);
@@ -81,7 +81,7 @@ void  SPI4_IRQHandler              (void)  __attribute__((alias("default_handler
 
 uint32_t  * Int_VectorTable[] __attribute__((section("isr_vector"))) =
  { 
-        (uint32_t *) &MSP_ADD,
+        (uint32_t *) MSP_ADD,
         (uint32_t *) &Reset_Handler,
         (uint32_t *) &NMI_Handler,
         (uint32_t *) &HardFault_Handler,
