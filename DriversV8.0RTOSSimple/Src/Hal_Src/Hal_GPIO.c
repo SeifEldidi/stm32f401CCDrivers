@@ -425,7 +425,6 @@ ERR  HAL_GPIO_WritePin(GPIO_Typedef * GPIO_PORT,uint16_t GPIO_PIN,GPIO_State Sta
 	if (GPIO_PORT == NULL )
 		Err_State = HAL_ERR;
 	else {
-		GPIO_PORT->MODER = 0x00000000U;
 		if (GPIO_PIN & GPIO_PIN_0) {
 			Err_State = Hal_write_Pin(GPIO_PORT, 0,State);
 		}
