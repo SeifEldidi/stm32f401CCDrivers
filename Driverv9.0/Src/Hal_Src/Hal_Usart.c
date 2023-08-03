@@ -366,6 +366,44 @@ void USART1_IRQHandler(void)
 #endif
 }
 
+void USART2_IRQHandler(void)
+{
+	NVIC_ClearPendingIRQ(USART2_IRQ);
+#if ConfigUSART_INT_EN_TX == EN
+	if(USART2->SR & TXE_READ)
+	{
+		if(USART2TX_Callback != NULL)
+			USART2TX_Callback();
+	}
+#endif
+#if ConfigUSART_INT_EN_RX == EN
+	if(USART2->SR & RXNE_READ)
+	{
+		if(USART2RX_Callback != NULL)
+				USART2RX_Callback();
+	}
+#endif
+}
+
+void USART6_IRQHandler(void)
+{
+	NVIC_ClearPendingIRQ(USART6_IRQ);
+#if ConfigUSART_INT_EN_TX == EN
+	if(USART6->SR & TXE_READ)
+	{
+		if(USART6TX_Callback != NULL)
+			USART6TX_Callback();
+	}
+#endif
+#if ConfigUSART_INT_EN_RX == EN
+	if(USART6->SR & RXNE_READ)
+	{
+		if(USART6RX_Callback != NULL)
+				USART6RX_Callback();
+	}
+#endif
+}
+
 
 
 #endif
