@@ -39,7 +39,7 @@ void SysClockInit()
 }
 
 uint8_t Buffer[10] ;
-uint8_t Buffer_1[] ="Sherif Eldidi\r\n";
+uint8_t Buffer_1[] ="Sasa Mix\r\n";
 
 
 void PeriphInit()
